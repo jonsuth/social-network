@@ -1,0 +1,113 @@
+{% extends 'users/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="profile">&nbsp;</div>
+    </div>
+
+    <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" class="login-form" autocomplete="off">
+                        <div class="form-group">
+                            <label for="id_username">Username</label>
+                            <input type="text" class="form-control" id="id_username" name="username"
+                                   placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password">Password</label>
+                            <input type="password" class="form-control" id="id_password" name="password"
+                                   placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Signup</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" class="signup-form" enctype="multipart/form-data" autocomplete="off">
+                        <div class="form-group">
+                            <label for="id_email">Email</label>
+                            <input type="email" class="form-control" id="id_email" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_username_signup">Username</label>
+                            <input type="text" class="form-control" id="id_username-signup"
+                                   placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password">Password</label>
+                            <input type="password" class="form-control" id="id_password-signup" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_first-name">First Name</label>
+                            <input type="text" class="form-control" id="id_first-name" placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_last-name">Last Name</label>
+                            <input type="text" class="form-control" id="id_last-name" placeholder="Last Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_birthday">Birthday</label>
+                            <input type="date" class="form-control" id="id_birthday">
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_gender" class="col-sm-2 col-form-label">Gender</label>
+                            <div class="col-sm-10">
+                                <select class="custom-select my-1 mr-sm-2" id="id_gender">
+                                    <option selected>Choose...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_hobbies">Hobbies</label>
+                            <select name="hobby[]" multiple id="id_hobbies">
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Upload profile image</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="id_profile_image"
+                                       aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="id_profile_image">Choose file</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    {% load staticfiles %}
+    <script src="{% static "users/js/main.js" %}"></script>
+{% endblock %}
